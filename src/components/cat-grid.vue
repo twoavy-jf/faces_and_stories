@@ -1,5 +1,6 @@
 <template>
     <div ref="grid">
+        <div class="grid-sizer"></div>
         <img src="http://placekitten.com/g/1000/600" class="cat" @load="loaded">
         <img src="http://placekitten.com/g/900/700" class="cat" @load="loaded">
         <img src="http://placekitten.com/g/600/200" class="cat" @load="loaded">
@@ -35,7 +36,8 @@ export default {
             this.msnry = new Masonry(this.$refs.grid, {
                 // options
                 itemSelector: '.cat',
-                columnWidth: 300
+                columnWidth: '.grid-sizer',
+                percentPosition: true
             })
         }
     }
@@ -43,11 +45,32 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .cat {
-        width: 300px;
+    /* For mobile phones: */
+    .grid-sizer,
+    [class*="cat"] {
+        width:100%;
         padding: 5px;
     }
-    .big-cat {
-        width: 600px;
+    @media only screen and (min-width: 600px) {
+        /* For tablets: */
+        .grid-sizer,
+        .cat {
+            width: 33%;
+            padding: 5px;
+        }
+        .big-cat {
+            width: 66%;
+        }
+    }
+    @media only screen and (min-width: 768px) {
+        /* For deskops: */
+        .grid-sizer,
+        .cat {
+            width: 20%;
+            padding: 5px;
+        }
+        .big-cat {
+            width: 40%;
+        }
     }
 </style>
