@@ -7,9 +7,11 @@
             <img src="http://placekitten.com/g/950/800" class="cat">
             <img src="http://placekitten.com/g/1200/700" class="cat">
         </slick>
-        <div class="position-absolute d-flex justify-content-between controls">
-            <div class="btn btn-primary" @click="prev">prev</div>
-            <div class="btn btn-primary" @click="next">next</div>
+        <div class="position-relative w-100">
+            <div class="position-absolute d-flex justify-content-between w-100">
+                <div class="btn btn-primary" @click="prev">prev</div>
+                <div class="btn btn-primary" @click="next">next</div>
+            </div>
         </div>
     </div>
 </template>
@@ -50,10 +52,4 @@ export default {
     .cat {
         max-height: 100vh;
     }
-
-    .controls {
-        top: 50%;
-        width: 100%;
-    }
-
 </style>
