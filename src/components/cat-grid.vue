@@ -52,7 +52,7 @@ export default {
                 this.images.push({
                     id: i,
                     bigCat,
-                    url: `http://placekitten.com/g/${width}/${height}`
+                    url: `http://placekitten.com/${width}/${height}`
                 })
             }
         },
