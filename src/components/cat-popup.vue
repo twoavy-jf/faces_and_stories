@@ -1,12 +1,10 @@
 <template>
     <div class="popup d-flex justify-content-center align-items-center">
         <div class="btn btn-danger close-button" @click="$emit('close')">schließen</div>
-        <div v-if="content.bigCat" class="image-container">
-            <cat-slider/>
-        </div>
-        <div v-else class="row d-flex justify-content-center align-items-center">
+        <div class="row d-flex justify-content-center align-items-center w-100">
             <div class="col-12 col-sm-8 col-md-6">
-                <img :src="content.url" class="img-fluid">
+                <cat-slider v-if="content.bigCat"/>
+                <img v-else :src="content.url" class="img-fluid">
             </div>
         </div>
     </div>
