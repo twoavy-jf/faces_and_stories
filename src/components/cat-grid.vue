@@ -1,7 +1,7 @@
 <template>
     <div ref="grid">
         <div class="grid-sizer"></div>
-        <div class="cat" :class="{ 'big-cat': image.bigCat }" v-for="image in images" :key="image.id" @click="onClick(image)">
+        <div class="cat zoom" :class="{ 'big-cat': image.bigCat }" v-for="image in images" :key="image.id" @click="onClick(image)">
             <div class="position-relative">
                 <img class="img-fluid" :src="image.url" @load="loaded">
                 <div class="overlay w-100 h-100 d-flex justify-content-center align-items-center">
@@ -68,9 +68,12 @@ export default {
     .grid-sizer,
     [class*="cat"] {
         width: 100%;
-        padding: 5px;
+        padding: 10px;
+        transition: transform .5s;
     }
-
+    .zoom:hover {
+        transform: scale(1.05);
+    }
     @media only screen and (min-width: 600px) {
         /* For tablets: */
         .grid-sizer,
