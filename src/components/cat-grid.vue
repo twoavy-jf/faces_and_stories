@@ -61,7 +61,7 @@ export default {
             this.$emit('open-popup', image)
         },
         getBGcolor(index) {
-            let colors = ['bg-primary', 'bg-info', 'bg-warning', 'bg-success']
+            let colors = ['bg-primary', 'bg-info', 'bg-danger', 'bg-success', 'bg-warning']
             return colors[index % colors.length]
         }
     }

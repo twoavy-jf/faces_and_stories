@@ -1,5 +1,6 @@
 <template>
     <div class="home">
+        <cat-header/>
         <cat-grid @open-popup="openPopup"/>
         <transition name="fade">
             <cat-popup v-if="showPopup" @close="showPopup = false" :content="popupContent"/>
@@ -10,12 +11,13 @@
 <script>
 // @ is an alias to /src
 
+import CatHeader from '../components/cat-header'
 import CatGrid from '../components/cat-grid'
 import CatPopup from '../components/cat-popup'
 
 export default {
     name: 'home',
-    components: { CatPopup, CatGrid },
+    components: { CatHeader, CatPopup, CatGrid },
     data() {
         return {
             showPopup: false,
