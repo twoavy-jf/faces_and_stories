@@ -1,10 +1,11 @@
 <template>
     <div ref="grid">
         <div class="grid-sizer"></div>
-        <div class="cat zoom" :class="{ 'big-cat': image.bigCat }" v-for="image in images" :key="image.id" @click="onClick(image)">
+        <div class="cat zoom" :class="{ 'big-cat': image.bigCat }" v-for="(image, i) in images" :key="image.id"
+             @click="onClick(image)">
             <div class="position-relative">
                 <img class="img-fluid" :src="image.url" @load="loaded">
-                <div class="overlay w-100 h-100 d-flex justify-content-center align-items-center">
+                <div id="color" class="overlay w-100 h-100 d-flex justify-content-center align-items-center" :class="getBGcolor(i)">
                     <span>cat #{{ image.id }}</span>
                 </div>
             </div>
@@ -58,6 +59,10 @@ export default {
         },
         onClick(image) {
             this.$emit('open-popup', image)
+        },
+        getBGcolor(index) {
+            let colors = ['bg-primary', 'bg-info', 'bg-warning', 'bg-success']
+            return colors[index % colors.length]
         }
     }
 }
@@ -71,9 +76,11 @@ export default {
         padding: 10px;
         transition: transform .5s;
     }
+
     .zoom:hover {
-        transform: scale(1.05);
+        transform: scale(1.03);
     }
+
     @media only screen and (min-width: 600px) {
         /* For tablets: */
         .grid-sizer,
@@ -95,9 +102,7 @@ export default {
             width: 40%;
         }
     }
-
     .overlay {
-        background: rgba(0, 0, 0, 0.8);
         color: white;
         opacity: 0;
         font-size: 2rem;
