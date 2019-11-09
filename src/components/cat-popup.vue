@@ -1,8 +1,10 @@
 <template>
     <div class="popup d-flex justify-content-center align-items-center">
-        <div class="btn btn-danger close-button" @click="$emit('close')">schließen</div>
+        <div class="btn close-button" @click="$emit('close')">
+            <icons name="close" :size="40" />
+        </div>
         <div class="row d-flex justify-content-center align-items-center w-100">
-            <div class="col-12 col-sm-8 col-md-6">
+            <div class="col-12 col-sm-8 col-md-8 px-0">
                 <cat-slider v-if="content.bigCat"/>
                 <img v-else :src="content.url" class="img-fluid">
             </div>
@@ -12,10 +14,11 @@
 
 <script>
 import CatSlider from './cat-slider'
+import Icons from './icons'
 
 export default {
     name: 'cat-popup',
-    components: { CatSlider },
+    components: { Icons, CatSlider },
     props: {
         content: Object
     }
@@ -37,6 +40,7 @@ export default {
             top: 0;
             right: 0;
             margin: 5px;
+            z-index: 11;
         }
     }
 </style>

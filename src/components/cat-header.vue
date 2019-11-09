@@ -1,6 +1,6 @@
 <template>
     <div class="d-flex justify-content-center align-items-center">
-    <h1>
+    <div class="h1">
         <p class="text"><span class="text-danger">public class</span> <span class="text-primary">hello</span> {</p>
         <p style="padding-left: 3em" class="text"><span class="text-danger">public static</span> <span class="text-info">void</span> <span class="text-primary">main</span>(<span class="text-info">String</span>[] <span class="text-warning">args</span>) {</p>
         <p style="padding-left: 6em" class="text"><span class="text-info">System</span>.out.println(</p>
@@ -8,7 +8,7 @@
         <p style="padding-left: 6em" class="text">);</p>
         <p style="padding-left: 3em" class="text">}</p>
         <p class="text">}</p>
-    </h1>
+    </div>
     </div>
 </template>
 
@@ -29,7 +29,7 @@ export default {
         height: 1.1em;
         word-wrap: break-word;
         white-space: nowrap;
-        animation: typing 4s steps(48) forwards;
+        animation: typing 4s steps(48) forwards 5s;
         /*animation-delay: 35s;*/
     }
 

@@ -47,9 +47,9 @@ export default {
         },
         randomKittens(num) {
             for (let i = 0; i < num; i++) {
-                let width = Math.floor(200 + Math.random() * 1050)
-                let height = Math.floor(200 + Math.random() * 700)
-                let bigCat = Math.random() < 0.2
+                let width = 1200
+                let height = 600
+                let bigCat = Math.random() < 0.3
                 this.images.push({
                     id: i,
                     bigCat,
@@ -61,7 +61,7 @@ export default {
             this.$emit('open-popup', image)
         },
         getBGcolor(index) {
-            let colors = ['bg-primary', 'bg-info', 'bg-danger', 'bg-success', 'bg-warning']
+            let colors = ['bg-primary', 'bg-success']
             return colors[index % colors.length]
         }
     }
