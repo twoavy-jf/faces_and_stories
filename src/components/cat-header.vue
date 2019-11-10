@@ -1,5 +1,5 @@
 <template>
-    <div class="d-flex justify-content-center align-items-center w-100">
+    <div class="d-flex justify-content-center align-items-center w-100 border-top border-bottom border-primary">
     <div class="text-style">
         <p class="text"><span class="text-danger">public class</span> <span class="text-primary">Hello</span> {</p>
         <p style="padding-left: 3em" class="text"><span class="text-danger">public static</span> <span class="text-info">void</span> <span class="text-primary">main</span>(<span class="text-info">String</span>[] <span class="text-warning">args</span>) {</p>

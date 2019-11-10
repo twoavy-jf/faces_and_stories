@@ -21,13 +21,13 @@ export default new Vuex.Store({
                     url: 'druck-obj.jpg',
                     caption: 'Lorem ipsum'
                 }
-            },
-            {
-                image: {
-                    url: 'ar-brille.gif',
-                    caption: 'Lorem ipsum'
-                }
             }
+            // {
+            //     image: {
+            //         url: 'ar-brille.gif',
+            //         caption: 'Lorem ipsum'
+            //     }
+            // }
         ]
     },
     mutations: {},

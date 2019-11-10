@@ -1,5 +1,6 @@
 <template>
     <div class="home">
+        <imm-header/>
         <cat-header/>
         <cat-grid @open-popup="openPopup"/>
         <transition name="fade">
@@ -14,10 +15,11 @@
 import CatHeader from '../components/cat-header'
 import CatGrid from '../components/cat-grid'
 import CatPopup from '../components/cat-popup'
+import ImmHeader from '../components/imm-header'
 
 export default {
     name: 'home',
-    components: { CatHeader, CatPopup, CatGrid },
+    components: { ImmHeader, CatHeader, CatPopup, CatGrid },
     data() {
         return {
             showPopup: false,
