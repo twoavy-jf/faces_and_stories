@@ -3,7 +3,7 @@
         <cat-header/>
         <cat-grid @open-popup="openPopup"/>
         <transition name="fade">
-            <cat-popup v-if="showPopup" @close="showPopup = false" :content="popupContent"/>
+            <cat-popup v-if="showPopup" @close="closePopup" :content="popupContent"/>
         </transition>
     </div>
 </template>
@@ -27,7 +27,11 @@ export default {
     methods: {
         openPopup(image) {
             this.showPopup = true
-            this.popupContent = image
+            this.popupContent = image.data
+        },
+        closePopup() {
+            this.showPopup = false
+            this.popupContent = null
         }
     }
 }

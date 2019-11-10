@@ -4,9 +4,10 @@
         <div class="cat zoom" :class="{ 'big-cat': image.bigCat }" v-for="(image, i) in images" :key="image.id"
              @click="onClick(image)">
             <div class="position-relative">
-                <img class="img-fluid" :src="image.url" @load="loaded">
-                <div id="color" class="overlay w-100 h-100 d-flex justify-content-center align-items-center" :class="getBGcolor(i)">
-                    <span>cat #{{ image.id }}</span>
+                <img @load="loaded"
+                     :src="require('@/assets/content/' + image.data.url)" class="img-fluid">
+                <div id="color" class="overlay w-100 h-100 d-flex justify-content-center align-items-center"
+                     :class="getBGcolor(i)">
                 </div>
             </div>
         </div>
@@ -26,12 +27,12 @@ export default {
         }
     },
     created() {
-        this.randomKittens(25)
+        this.randomKittens(this.$store.state.data.length)
     },
     methods: {
         loaded() {
             this.numLoaded++
-            if (this.numLoaded >= 25) {
+            if (this.numLoaded >= this.$store.state.data.length) {
                 this.init()
             }
         },
@@ -47,13 +48,11 @@ export default {
         },
         randomKittens(num) {
             for (let i = 0; i < num; i++) {
-                let width = 1200
-                let height = 600
                 let bigCat = Math.random() < 0.3
                 this.images.push({
                     id: i,
                     bigCat,
-                    url: `http://placekitten.com/${width}/${height}`
+                    data: this.$store.getters.getImage(i)
                 })
             }
         },
@@ -102,6 +101,7 @@ export default {
             width: 40%;
         }
     }
+
     .overlay {
         color: white;
         opacity: 0;
