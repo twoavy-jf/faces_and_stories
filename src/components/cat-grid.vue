@@ -5,7 +5,7 @@
              @click="onClick(image)">
             <div class="position-relative">
                 <img @load="loaded"
-                     :src="require('@/assets/content/' + image.data.url)" class="img-fluid">
+                     :src="require('@/assets/content/thumbnails/' + image.data.url)" class="img-fluid">
                 <div id="color" class="overlay w-100 h-100 d-flex justify-content-center align-items-center"
                      :class="getBGcolor(i)">
                 </div>
